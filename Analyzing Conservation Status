@@ -1,0 +1,32 @@
+#Menu
+import codecademylib
+import pandas as pd
+from matplotlib import pyplot as plt
+
+#Inspecting Data Frame
+species = pd.read_csv('species_info.csv')
+
+#print species.head()
+
+#Different Species (Total)
+species_count = species.scientific_name.nunique()
+#print(species_count)
+
+#Animals Category
+species_type =species.category.unique()
+#print(species_type)
+
+#Conservation Status
+conservation_statuses = species.conservation_status.unique()
+#print(conservation_statuses)
+
+#Conservation Animal Data. 
+conservation_counts = species.groupby("conservation_status").scientific_name.nunique().reset_index()
+#print conservation_counts
+
+#NaN fill in
+species.fillna('No Intervention', inplace = True)
+
+#Fixed Conservation Counts 
+conservation_counts_fixed = species.groupby("conservation_status").scientific_name.nunique().reset_index()
+print conservation_counts_fixed
