@@ -1,0 +1,20 @@
+from scipy.stats import chi2_contingency
+
+#Chi-Squred Test
+contingency = [[30, 146],
+[75,413]
+]
+
+chi2, pval, dof, expected = chi2_contingency(contingency)
+print ('P-value(Mammal & Bird): ' + str(pval))
+
+#Reptile and Mammal P Value
+
+reptile_and_mammal = [[5,73],
+[30,146]
+]
+
+chi2, pval_reptile_mammal, dof, expected = chi2_contingency(reptile_and_mammal)
+print('P-value(Reptile & Mammal): ' + str(pval_reptile_mammal))
+
+# Base on the P-value calculated we can that some animals are likely to be endangered then others, in this case our endangered animals are reptile. 
